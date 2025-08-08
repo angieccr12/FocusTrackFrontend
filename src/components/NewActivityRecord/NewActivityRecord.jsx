@@ -157,7 +157,7 @@ const NewActivityRecord = ({ isVisible, onClose, onSaveRecord, devices = [] }) =
                 onChange={(e) => handleInputChange('device', e.target.value)}
               >              
                 <option value="">Select a device</option>
-                {devices.map((device, index) => (
+                {devices?.map((device, index) => (
                   <option key={device.id || index} value={device.deviceName}>
                     {device.deviceName} ({device.deviceType})
                   </option>

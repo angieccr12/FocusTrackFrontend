@@ -20,7 +20,7 @@ const Dashboard = () => {
   const fetchDevices = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('https://focustrackbackend-production.up.railway.app', {
+      const response = await axios.get('https://focustrackbackend-production.up.railway.app/api/devices', {
         headers: {
           Authorization: `Bearer ${token}`
         }
