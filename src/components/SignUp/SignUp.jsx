@@ -49,7 +49,7 @@ export default function SignUp() {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/register', {
+      const response = await axios.post('https://focustrackbackend-production.up.railway.app/api/auth/register', {
         first_name,
         last_name,
         email,

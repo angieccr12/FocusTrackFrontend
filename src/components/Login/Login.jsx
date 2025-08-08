@@ -22,7 +22,7 @@ export default function Login() {
   const submit=async(event)=>{
     event.preventDefault();
     try{ 
-      const response = await axios.post('http://localhost:3000/api/auth/login', formLoginData);
+      const response = await axios.post('https://focustrackbackend-production.up.railway.app/api/auth/login', formLoginData);
       const message = response?.data?.message??'Session started successfully';
       toast.success(message);
       console.log(response.data);

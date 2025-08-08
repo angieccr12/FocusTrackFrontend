@@ -20,7 +20,7 @@ const Dashboard = () => {
   const fetchDevices = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/api/devices', {
+      const response = await axios.get('https://focustrackbackend-production.up.railway.app', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -35,7 +35,7 @@ const Dashboard = () => {
     try {
       setActivityRecords(null);
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:3000/api/report/${selectedView}`, {
+      const response = await axios.get(`https://focustrackbackend-production.up.railway.app/api/report/${selectedView}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -63,7 +63,7 @@ const Dashboard = () => {
         deviceType: device.type
       };
 
-      const response = await axios.post('http://localhost:3000/api/devices', newDevice, {
+      const response = await axios.post('https://focustrackbackend-production.up.railway.app/api/devices', newDevice, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -83,7 +83,7 @@ const Dashboard = () => {
   const handleSaveRecord = async (recordData) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:3000/api/activity', recordData, {
+      const response = await axios.post('https://focustrackbackend-production.up.railway.app/api/activity', recordData, {
         headers: {
           Authorization: `Bearer ${token}`
         }
