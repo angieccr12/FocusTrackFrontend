@@ -1,0 +1,325 @@
+.activity-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.activity-container {
+  background-color: var(--white, #ffffff);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem 0 2rem;
+  border-bottom: 2px solid var(--light-blue, #93c5fd);
+  margin-bottom: 1.5rem;
+}
+
+.activity-title {
+  color: var(--dark-blue, #1e3a8a);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.activity-close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--dark-gray, #374151);
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.activity-close-btn:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.activity-card {
+  padding: 0 2rem 2rem 2rem;
+}
+
+.activity-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.activity-label {
+  font-weight: 600;
+  color: var(--dark-blue, #1e3a8a);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.activity-input {
+  padding: 0.75rem;
+  border: 2px solid var(--light-blue, #93c5fd);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: var(--dark-blue, #1e3a8a);
+  background-color: var(--white, #ffffff);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.activity-input:focus {
+  outline: none;
+  border-color: var(--medium-blue, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(84, 119, 146, 0.1);
+}
+
+.activity-input.full {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilos específicos para selects */
+.activity-input[type="date"] {
+  cursor: pointer;
+}
+
+select.activity-input {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Estilos para las opciones de los selects */
+select.activity-input option {
+  color: var(--dark-blue, #1e3a8a) !important;
+  background-color: var(--white, #ffffff) !important;
+  padding: 0.5rem;
+}
+
+select.activity-input option:disabled {
+  color: var(--gray, #6b7280) !important;
+  font-style: italic;
+}
+
+/* Asegurar visibilidad en modo oscuro */
+@media (prefers-color-scheme: dark) {
+  select.activity-input option {
+    color: #1e3a8a !important;
+    background-color: #ffffff !important;
+  }
+}
+
+.activity-toggle-button {
+  background: none;
+  border: 1px solid var(--medium-blue, #3b82f6);
+  color: var(--medium-blue, #3b82f6);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.activity-toggle-button:hover {
+  background-color: var(--medium-blue, #3b82f6);
+  color: var(--white, #ffffff);
+  transform: translateY(-1px);
+}
+
+.activity-time-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.time-select {
+  flex: 1;
+  min-width: 60px;
+}
+
+.time-separator {
+  font-weight: bold;
+  color: var(--dark-blue, #1e3a8a);
+  font-size: 1.2rem;
+  padding: 0 0.25rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--light-blue, #93c5fd);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.6rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  min-width: 100px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-cancel {
+  background-color: var(--light-gray, #e5e7eb);
+  color: var(--dark-gray, #374151);
+  border: 1px solid var(--light-blue, #93c5fd);
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.btn-save {
+  background-color: var(--medium-blue, #3b82f6);
+  color: var(--white, #ffffff);
+}
+
+.btn-save:hover:not(:disabled) {
+  background-color: var(--dark-blue, #1e3a8a);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(84, 119, 146, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .activity-overlay {
+    padding: 0.5rem;
+  }
+  
+  .activity-container {
+    max-width: none;
+    margin: 0;
+  }
+  
+  .activity-header {
+    padding: 1rem 1.5rem 0 1.5rem;
+  }
+  
+  .activity-title {
+    font-size: 1.25rem;
+  }
+  
+  .activity-card {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .activity-time-row {
+    gap: 0.25rem;
+  }
+  
+  .time-separator {
+    font-size: 1rem;
+    padding: 0 0.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-header {
+    padding: 1rem 1rem 0 1rem;
+  }
+  
+  .activity-card {
+    padding: 0 1rem 1rem 1rem;
+  }
+  
+  .activity-title {
+    font-size: 1.1rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .activity-time-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .time-select {
+    min-width: 70px;
+  }
+}
+
+/* Custom scrollbar for modal */
+.activity-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activity-container::-webkit-scrollbar-track {
+  background: var(--light-gray, #e5e7eb);
+  border-radius: 3px;
+}
+
+.activity-container::-webkit-scrollbar-thumb {
+  background: var(--medium-blue, #3b82f6);
+  border-radius: 3px;
+}
+
+.activity-container::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-blue, #1e3a8a);
+}
